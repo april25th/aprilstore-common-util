@@ -177,7 +177,7 @@ public class AliyunService {
         javax.crypto.Mac mac = javax.crypto.Mac.getInstance("HmacSHA1");
         mac.init(new javax.crypto.spec.SecretKeySpec(accessSecret.getBytes("UTF-8"), "HmacSHA1"));
         byte[] signData = mac.doFinal(stringToSign.getBytes("UTF-8"));
-        return new sun.misc.BASE64Encoder().encode(signData);
+        return Base64.getEncoder().encodeToString(signData);
     }
 
     /**

@@ -5,21 +5,20 @@ import com.aprilstore.common.model.ResponseBean;
 import com.aprilstore.common.model.StatusCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+
+import javax.annotation.Resource;
 
 /**
  * Created by wd on 2017/10/13.
  */
-@Component
 public class SMSService {
     private final Logger logger = LoggerFactory.getLogger(SMSService.class);
 
-    @Autowired
+    @Resource
     SMSConfig smsConfig;
 
-    public ResponseBean<String> SendMessage(SMSRequest request) {
+    public ResponseBean<String> sendMessage(SMSRequest request) {
 
         ResponseBean<String> responseBean = new ResponseBean(StatusCode.SYSTEM_ERROR);
         try {
