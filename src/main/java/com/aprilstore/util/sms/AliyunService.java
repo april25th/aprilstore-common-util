@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
+import java.util.Base64;
+import java.util.BitSet;
 import java.util.Map;
 
 /**

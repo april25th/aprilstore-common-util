@@ -1,0 +1,69 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://xxx:8761/eureka/
+  instance:
+      preferIpAddress: true
+      ip-address: xxx
+server:
+  port: 8767
+spring:
+  application:
+    name: xxx
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://xxx:3306/xxx?serverTimezone=Asia/Shanghai&autoReconnect=true&characterEncoding=gbk&useSSL=false
+    username: root
+    password: mysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait : 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 60000
+    validationQuery : SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    filters: stat,wall,log4j
+    logSlowSql: true
+    druid:
+      aop-patterns: com.panxin.userservice.*
+
+
+mybatis: 
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.xxx.model
+  config-locations: classpath:mybatis-config.xml
+
+aliyunsms:
+  apiUrl: http://dysmsapi.aliyuncs.com
+  accessKeyId: xxx
+  accessSecret: xxx
+  action: SendSms
+  version: 2017-05-25
+  regionId: cn-hangzhou
+  templateCode: xxx
+
+jedis:
+  pool:
+    host: xxx
+    port: 6379
+    password: xxx
+    timeout: 800
+    config:
+      maxTotal: 100
+      maxIdle: 1000
+      maxWaitMillis: 1000
+
+
+logging:
+  config: classpath:logback-spring.xml
+
+---
+spring:
+  profiles: dev
+logging:
+  config: classpath:logback-spring.xml
